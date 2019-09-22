@@ -1,8 +1,6 @@
 package ge.sangu.test_project.logger.impl;
 
-import ge.sangu.test_project.logger.Logger;
-
-public class ConsoleLogger extends Logger {
+public class ConsoleLogger extends AbstractLogger {
 
     public ConsoleLogger(Class clazz) {
         super(clazz);

@@ -1,60 +1,18 @@
 package ge.sangu.test_project.logger;
 
-public abstract class Logger implements Loggerable {
+public interface Logger {
 
-    private final Class clazz;
-    private Level level;
+    void log(Level level, String message);
 
-    public Logger(Class clazz) {
-        this.clazz = clazz;
-        this.level = Level.TRACE;
-    }
+    void trace(String message);
 
-    public Logger(Class clazz, Level level) {
-        this.clazz = clazz;
-        this.level = level;
-    }
+    void debug(String message);
 
-    protected abstract void abstractLog(String message);
+    void info(String message);
 
-    private String formatMessage(Level level, String message) {
-        return String.format("[%s][%s]: %s\n", clazz.getName(), level, message);
-    }
+    void warn(String message);
 
-    @Override
-    public void log(Level level, String message) {
-        if (this.level.getValue() <= level.getValue()) {
-            abstractLog(formatMessage(level, message));
-        }
-    }
+    void error(String message);
 
-    @Override
-    public void trace(String message) {
-        log(Level.TRACE, message);
-    }
-
-    @Override
-    public void debug(String message) {
-        log(Level.DEBUG, message);
-    }
-
-    @Override
-    public void info(String message) {
-        log(Level.INFO, message);
-    }
-
-    @Override
-    public void warn(String message) {
-        log(Level.WARN, message);
-    }
-
-    @Override
-    public void error(String message) {
-        log(Level.ERROR, message);
-    }
-
-    @Override
-    public void fatal(String message) {
-        log(Level.FATAL, message);
-    }
+    void fatal(String message);
 }

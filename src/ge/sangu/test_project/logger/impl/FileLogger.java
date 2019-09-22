@@ -1,14 +1,13 @@
 package ge.sangu.test_project.logger.impl;
 
 import ge.sangu.test_project.logger.Level;
-import ge.sangu.test_project.logger.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class FileLogger extends Logger {
+public class FileLogger extends AbstractLogger {
 
     private Path filePath;
 
