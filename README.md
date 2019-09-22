@@ -1,2 +1,3 @@
-# java-logger
+# Java Logger
+
 A simple Java logging library.
